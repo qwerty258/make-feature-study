@@ -34,3 +34,17 @@ ifndef LDFLAGS
 else
     $(info ${LDFLAGS})
 endif
+
+HEADERS=$(wildcard *.h)
+SRCS=$(wildcard *.c)
+OBJS=$(SRCS:.c=.o)
+
+%.o: %.c
+	$(CC) -c $<
+
+test: $(OBJS) $(HEADERS)
+	$(CC) -o test.elf $(OBJS)
+
+
+clean:
+	rm -v $(OBJS) *.elf
