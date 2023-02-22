@@ -40,10 +40,10 @@ SRCS=$(wildcard *.c)
 OBJS=$(SRCS:.c=.o)
 
 test: $(OBJS) $(HEADERS)
-        $(CC) -o test.elf $(OBJS)
+	$(CC) -o test.elf $(OBJS)
 
 %.o: %.c
-        $(CC) -c $<
+	$(CC) -c $<
 
 clean:
-        rm -v $(OBJS) *.elf
+	rm -v $(OBJS) *.elf
