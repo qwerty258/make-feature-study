@@ -39,12 +39,11 @@ HEADERS=$(wildcard *.h)
 SRCS=$(wildcard *.c)
 OBJS=$(SRCS:.c=.o)
 
-%.o: %.c
-	$(CC) -c $<
-
 test: $(OBJS) $(HEADERS)
-	$(CC) -o test.elf $(OBJS)
+        $(CC) -o test.elf $(OBJS)
 
+%.o: %.c
+        $(CC) -c $<
 
 clean:
-	rm -v $(OBJS) *.elf
+        rm -v $(OBJS) *.elf
